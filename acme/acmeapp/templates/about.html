@@ -1,24 +1,26 @@
 {% extends './base.html' %}
 
+{% block title %}About{% endblock %}
+
 {% block content %}
 <section id="main">
   <div class="container">
     <article id="main-col">
-      <h1 class="page-title">About Us</h1>
-      <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-      </p>
-      <p class="dark">
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
-      </p>
+      <h1 class="page-title">{{ about.about_us }}</h1>
+      <p>{{ about.info }}</p>
+      <p class="dark">{{ about.detailed_info }}</p>
     </article>
 
     <aside id="sidebar">
       <div class="dark">
-        <h3>What We Do</h3>
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
+        <h3>{{ about.our_job }}</h3>
+        <p>{{ about.job_info }}</p>
       </div>
     </aside>
   </div>
 </section>
+{% endblock %}
+
+{% block about %}
+class="current"
 {% endblock %}

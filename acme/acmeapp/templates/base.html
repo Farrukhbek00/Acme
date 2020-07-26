@@ -6,10 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <title>Acme |</title>
+  <title>Acme Web Design | {% block title %}{% endblock %}</title>
 </head>
 <body>
-  {% include 'navbar.html' %}
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Acme</span> Web Design</h1>
+      </div>
+      <nav>
+        <ul>
+          <li {% block index %}{% endblock %}><a href="/index/">Home</a></li>
+          <li {% block about %}{% endblock %}><a href="/about/">About</a></li>
+          <li {% block service %}{% endblock %}><a href="/services/">Services</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   {% block showcase %}{% endblock %}
 
