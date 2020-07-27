@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Home, About, Service
+from acmeapp.forms import RegisterForm
 
 # Create your views here.
 
@@ -30,3 +31,18 @@ def services(request):
         'service2': service2,
         'service3': service3,
     })
+
+def register(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('dashboard/')
+    else:
+        form = RegisterForm()
+
+    return render(request, 'register.html', {'form':form})
+
+
+def dashboard(request):
+    return render(request, 'dashboard.html', {})

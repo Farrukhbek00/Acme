@@ -24,4 +24,6 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('services/', views.services, name='services'),
+    path('register/dashboard/', views.dashboard, name='dashboard'),
+    path('register/', views.register, name='register'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
