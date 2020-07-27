@@ -3,7 +3,7 @@
 {% block title %}Welcome{% endblock %}
 
 {% block showcase %}
-<section id="showcase">
+<section id="showcase" style="background-image: url('{{ index.background_image.url }}')">
   <div class="container">
     <h1>{{ index.title }}</h1>
     <p>{{ index.description }}</p>
@@ -16,18 +16,17 @@
 <section id="boxes">
   <div class="container">
     <div class="box">
-      <img src="{% static "img/logo_html.png" %}" alt="html">
+      <img src="{{ index.box_image.url }}" alt="html"/>
       <h3>{{ index.box_title }}</h3>
       <p>{{ index.box_description }}</p>
     </div>
     <div class="box">
-      <img src="{% static "img/logo_css.png" %}" alt="css">
+      <img src="{{ index2.box_image.url }}" alt="css"/>
       <h3>{{ index2.box_title }}</h3>
       <p>{{ index2.box_description }}</p>
     </div>
     <div class="box">
-
-      <img src="{% static "img/logo_brush.png" %}" alt="brush">
+      <img src="{{ index3.box_image.url }}" alt="brush"/>
       <h3>{{ index3.box_title }}</h3>
       <p>{{ index3.box_description }}</p>
     </div>

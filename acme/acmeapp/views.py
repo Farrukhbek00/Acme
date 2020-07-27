@@ -8,6 +8,7 @@ def index(request):
     index = get_object_or_404(Home, pk=1)
     index2 = get_object_or_404(Home, pk=2)
     index3 = get_object_or_404(Home, pk=3)
+    print(index.box_image)
     return render(request, 'index.html', {
         'index': index,
         'index2': index2,
