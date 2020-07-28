@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Home, About, Service
-from acmeapp.forms import RegisterForm
+from acmeapp.forms import RegisterForm, HomeForm, AboutForm, ServiceForm
 
 # Create your views here.
 
@@ -44,5 +44,22 @@ def register(request):
     return render(request, 'register.html', {'form':form})
 
 
-def dashboard(request):
-    return render(request, 'dashboard.html', {})
+def index_update(request, pk):
+
+    index = get_object_or_404(Home, id=pk)
+    update_form = HomeForm(instance = Home.objects.get(id = pk))
+
+    if request.method == 'POST':
+        update_form = HomeForm(request.POST, instance = index)
+
+        if update_form.is_valid():
+            update_form.save()
+            return HttpResponseRedirect("/index")
+
+    return render(request, 'index_update.html', {'update_form':update_form})
+
+def about_update(request):
+    return render(request, 'about_update.html', {})
+
+def services_update(request):
+    return render(request, 'services_update.html', {})
